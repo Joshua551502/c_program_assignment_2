@@ -76,7 +76,7 @@ ItemPtr removeItem(ItemPtr sPtr, char id[10]) {
     if (sPtr == NULL) {
         puts("List is empty... nothing to delete");
         return NULL;
-    }
+    } 
 
     // Search for item by ID
     while (currentPtr != NULL && strcmp(id, currentPtr->itemID) != 0) {
