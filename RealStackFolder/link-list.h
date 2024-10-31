@@ -24,11 +24,16 @@ void topOfStack(ItemPtr stackTop);
 void bottomOfStack(ItemPtr stackTop);
 void printStack(ItemPtr stackTop);
 void stackMenu();
-void clearInputBuffer();
+bool isEmpty(ItemPtr stackTop);  // Function prototype for isEmpty
 float validNumericValue();
 char* validString();
 
 /******* Function Definitions ******/
+
+// Check if stack is empty
+bool isEmpty(ItemPtr stackTop) {
+    return stackTop == NULL;
+}
 
 // Create new item node
 ItemPtr createItem(char id[10], char name[20], char condition, float price) {
@@ -63,7 +68,8 @@ ItemPtr pop(ItemPtr *stackTop) {
     ItemPtr tempPtr = *stackTop;
     printf("Part %s (%s) has been popped from the stack.\n", tempPtr->itemName, tempPtr->itemID);
     *stackTop = (*stackTop)->nextPtr;
-    return tempPtr;
+    free(tempPtr);  // Free memory to avoid memory leak
+    return *stackTop;
 }
 
 // Display top item on stack
