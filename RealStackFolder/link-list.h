@@ -150,12 +150,13 @@ char* validString() {
 
 // Menu for stack operations
 void stackMenu() {
-    puts("STACK OPERATIONS");
-    printf("1) Top of Stack\n");
-    printf("2) Bottom of Stack\n");
-    printf("3) Push\n");
-    printf("4) Pop\n");
-    printf("5) Print all data items\n");
-    printf("6) Exit Stack Application\n");
+    puts("AUTO REPAIR SHOP INVENTORY SYSTEM");
+    printf("1) View Top Item (Most Recently Added Part)\n");
+    printf("2) View Bottom Item (Oldest Part)\n");
+    printf("3) Add New Part to Inventory\n");
+    printf("4) Remove Part from Inventory\n");
+    printf("5) Display All Parts\n");
+    printf("6) Exit Inventory System\n");
     printf("Enter Choice: ");
 }
+

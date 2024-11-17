@@ -1,30 +1,35 @@
+#include <stdio.h>
+#include "stackArray.h"
 
-// include stack header file
+int main(void) {
+    int id;
+    char name[20];
+    float mark;
+    char code;
 
-int main(void)
-{
-   int value;
-   // create & initialise stack
-   
-   /* read a series of values, push on stack, ensure stack non-full */
-   printf("Enter A Series of Values, Zero to stop ");
-   scanf("%d",&value);
-   while(value != 0)
-   {
-     //add code here to push current value onto stack
-     printf("Enter A Series of Values, Zero to stop ");
-     scanf("%d",&value);
-   } 
-   
-   // pop values and print, ensure stack is non-empty 
-   puts("The values in the stack are: ");
-  
-   while(/*ensure stack is not empty*/)
-   {
-      //pop all values from stack and print
-   }
-   puts("");
-   // releasing stack memory
-   
+    // Create & initialize stack
+    StackTypePtr stackPtr = initStack();
+
+    // Read a series of ids, push on stack, ensure stack non-full
+    printf("Enter ID, NAME, MARK, CODE, 0 to stop: ");
+    scanf("%d%19s%f %c", &id, name, &mark, &code);
+    while (id != 0) {
+        // Push current student onto stack
+        push(stackPtr, id, name, mark, code);
+        printf("Enter ID, NAME, MARK, CODE, 0 to stop: ");
+        scanf("%d%19s%f %c", &id, name, &mark, &code);
+    }
+
+    // Pop ids and print, ensure stack is non-empty
+    puts("The ids in the stack are:");
+    while (!isEmpty(stackPtr)) { // Ensure stack is not empty
+        Student any = pop(stackPtr); // Pop all ids from stack and print
+        printf("%d %s %.2f %c\n", any.sId, any.sName, any.sMark, any.sCode);
+    }
+    puts("");
+
+    // Release stack memory
+    free(stackPtr);
+
+    return 0;
 }
-

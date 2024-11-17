@@ -8,7 +8,7 @@ int main(void) {
     char input[10];  // Buffer for storing user input
 
     stackMenu();
-    printf("? ");
+    printf("");
 
     while (true) {
         fgets(input, sizeof(input), stdin);
